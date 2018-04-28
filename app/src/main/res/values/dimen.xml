@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--尽量不要私自在布局文件中定义尺寸，尽可能引用这里的颜色-->
+
+    <!--全局横线高度-->
+    <dimen name="dimens_global_line">0.5dp</dimen>
+    <!--全局圆角大小-->
+    <dimen name="dimens_global_cradius">2dp</dimen>
+
+    <!--全局左边距-->
+    <dimen name="dimens_global_marginleft">8dp</dimen>
+    <!--全局右边距-->
+    <dimen name="dimens_global_marginRight">8dp</dimen>
+
+    <!--首页下面几个按钮字体大小-->
+    <dimen name="dimens_global_text_bottombar">12dp</dimen>
+    <!--右侧字母字体大小-->
+    <dimen name="dimens_text_letter">12dp</dimen>
+
+</resources>

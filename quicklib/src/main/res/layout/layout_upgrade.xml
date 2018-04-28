@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/lay_root"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/ly"
+        android:layout_width="260dp"
+        android:layout_height="320dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/layer_upgrade_dialog"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:tag="beta_title"
+            android:text="新版本升级"
+            android:textColor="@color/color_global_dialog_text_first_color"
+            android:textSize="16sp"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="4dp">
+                <!-- 【必设】升级信息控件tag：beta_upgrade_info-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.5"
+                    android:tag="beta_upgrade_info"
+                    android:text="info"
+                    android:textColor="@color/color_global_dialog_text_second_color"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:text="@string/strUpgradeDialogFeatureLabel"
+                    android:textColor="@color/color_global_dialog_text_first_color"
+                    android:textSize="16sp"/>
+                <!-- 【必设】更新属性控件tag：beta_upgrade_feature-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingMultiplier="1.5"
+                    android:maxLength="120"
+                    android:tag="beta_upgrade_feature"
+                    android:text="feature"
+                    android:textColor="@color/color_global_dialog_text_second_color"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btn_confirm"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="340dp"
+        android:background="@drawable/shape_dialog_btn_upgrade"
+        android:gravity="center"
+        android:tag="beta_confirm_button"
+        android:text="立即升级"
+        android:textColor="@color/color_global_bg_container"
+        android:textSize="14sp"/>
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/beta_cancel_button"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_below="@+id/btn_confirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:background="@mipmap/ic_launcher_round"
+        android:tag="beta_cancel_button"/>
+</RelativeLayout>

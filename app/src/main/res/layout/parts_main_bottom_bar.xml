@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="58dp"
+              android:background="@color/color_bottom_tabbg"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/pmbb_ll_home"
+            style="@style/pmbb_ll_tabContainer">
+
+            <ImageButton
+                android:id="@+id/pmbb_ib_home"
+                style="@style/pmbb_ib_tabimg"
+                android:src="@drawable/market_nopress"/>
+
+            <TextView
+                android:id="@+id/pmbb_tv_home"
+                style="@style/pmbb_tv_tabtv"
+                android:text="首页"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pmbb_ll_knowledge"
+            style="@style/pmbb_ll_tabContainer">
+
+            <ImageButton
+                android:id="@+id/pmbb_ib_knowledge"
+                style="@style/pmbb_ib_tabimg"
+                android:src="@drawable/hold_nopress"/>
+
+            <TextView
+                android:id="@+id/pmbb_tv_knowledge"
+                style="@style/pmbb_tv_tabtv"
+                android:text="知识体系"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pmbb_ll_navigation"
+            style="@style/pmbb_ll_tabContainer">
+
+            <ImageButton
+                android:id="@+id/pmbb_ib_navigation"
+                style="@style/pmbb_ib_tabimg"
+                android:src="@drawable/dynamic_nopress"/>
+
+            <TextView
+                android:id="@+id/pmbb_tv_navigation"
+                style="@style/pmbb_tv_tabtv"
+                android:text="导航"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/pmbb_ll_mine"
+            style="@style/pmbb_ll_tabContainer">
+
+            <ImageButton
+                android:id="@+id/pmbb_ib_mine"
+                style="@style/pmbb_ib_tabimg"
+                android:src="@drawable/min_nopress"/>
+
+            <TextView
+                android:id="@+id/pmbb_tv_mine"
+                style="@style/pmbb_tv_tabtv"
+                android:text="我的"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

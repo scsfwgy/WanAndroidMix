@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+
+
+    <!--沉浸式颜色-->
+    <!--<color name="color_global_immersion">#252626</color>-->
+    <color name="color_global_immersion">#3ef510</color>
+
+    <!--全局背影色-->
+    <color name="color_global_bg_container">#ecf5ec</color>
+
+
+
+    <!--全局字体颜色_首选字体-->
+    <color name="color_global_text_first">#030303</color>
+    <!--全局字体颜色_次选字体-->
+    <color name="color_global_text_second">#262926</color>
+
+
+    <!--警告框-->
+    <color name="color_global_red_alert">#fa5414</color>
+    !--全局字体颜色_alert字体-->
+    <color name="color_global_text_alert">#fa5414</color>
+
+    <!--全局dialog颜色-->
+    <color name="color_global_dialog_color">#030303</color>
+    <!--全局dialog颜色_字体-->
+    <color name="color_global_dialog_text_first_color">#ffffff</color>
+    <color name="color_global_dialog_text_second_color">#f5eeee</color>
+
+    <!--分割线的颜色-->
+    <color name="color_global_divider_color">#e44c4c</color>
+
+</resources>

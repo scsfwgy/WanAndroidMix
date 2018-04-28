@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <include layout="@layout/parts_deal_title_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一些简单的控件添加即可"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/ad_tl_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:tabIndicatorColor="@color/color_global_text_first"
+            app:tabSelectedTextColor="@color/color_global_text_first"
+            app:tabTextColor="@color/color_global_text_second"
+            />
+
+        <com.qht.galaxychain.view.NoScrollViewPager
+            android:id="@+id/ad_vp_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ad_ll_buyContainer"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/buy_v"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ad_tv_buytitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="做多"
+                android:textColor="@color/color_global_text_third"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/ad_tv_buyprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="2631.8"
+                android:textColor="@color/color_global_text_third"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:id="@+id/ad_ll_sellContainer"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/sell_v"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ad_tv_selltitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="做多"
+                android:textColor="@color/color_global_text_third"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/ad_tv_sellprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="2631.8"
+                android:textColor="@color/color_global_text_third"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

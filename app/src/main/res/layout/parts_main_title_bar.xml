@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/pmtb_rl_container"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/color_global_navbar"
+                android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/pmtb_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="玩安卓(Java+Kotlin)"
+        android:textColor="@color/color_global_text_third"
+        android:textSize="16sp"/>
+</RelativeLayout>

@@ -1,0 +1,203 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'bugly'
+
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+/**获取git count HEAD*/
+def static getMyVersionCode() {
+    Process process = "git rev-list --count HEAD".execute()
+    process.waitFor()
+    int cccc = process.getText().toInteger()
+    return cccc
+}
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.qht.wanandroidmix"
+        minSdkVersion 15
+        targetSdkVersion 27
+        //这个比较特殊，这里以git提交head作为code,感觉这样更科学，如果出现什么问题直接去查对应git版本对应的代码。美滋滋
+        versionCode getMyVersionCode() as int
+        versionName "1.0"
+        //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
+        flavorDimensions "sdas"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled false
+
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86'//, 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+
+    signingConfigs {
+        //debug模式下签名的设置，这里的配置主要用于脚本运行。对于采用图形界面构建测不起效。
+        debug {
+            storeFile file(project.debug_storeFile)
+            storePassword project.debug_storePassword
+            keyAlias project.debug_keyAlias
+            keyPassword project.debug_keyPassword
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        beta {
+            storeFile file(project.debug_storeFile)
+            storePassword project.debug_storePassword
+            keyAlias project.debug_keyAlias
+            keyPassword project.debug_keyPassword
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        release {
+            storeFile file(project.release_storeFile)
+            storePassword project.release_storePassword
+            keyAlias project.release_keyAlias
+            keyPassword project.release_keyPassword
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+        //平时开发使用
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            shrinkResources false
+            minifyEnabled false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //versionName的后缀
+            versionNameSuffix "_debug"
+            //appId后缀，加一个后缀保证各个版本（debug、beta、release可以共存）
+            applicationIdSuffix ".debug"
+            //签名选择
+            signingConfig signingConfigs.debug
+            //动态修改应用的名字和图标
+            manifestPlaceholders = [app_names: "QuickApp_debug", app_icons: "@drawable/img1"]
+
+            buildConfigField("String", "BUGLY_APPID", "\"" + project.BUGLY_APPID + "\"")
+            buildConfigField("String", "BUGLY_APPKEY", "\"" + project.BUGLY_APPKEY + "\"")
+
+            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com/\"")
+        }
+
+        //内侧使用
+        beta {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            shrinkResources false
+            minifyEnabled false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //versionName的后缀
+            versionNameSuffix "_beta"
+            //appId后缀
+            applicationIdSuffix ".beta"
+            //签名选择
+            signingConfig signingConfigs.beta
+            manifestPlaceholders = [app_names: "QuickApp_beta", app_icons: "@drawable/img2"]
+
+            buildConfigField("String", "BUGLY_APPID", "\"" + project.BUGLY_APPID + "\"")
+            buildConfigField("String", "BUGLY_APPKEY", "\"" + project.BUGLY_APPKEY + "\"")
+
+            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com/\"")
+        }
+
+        //正式版本
+        release {
+            //不显示log信息
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            // 移除无用的resource文件
+            shrinkResources true
+            //混淆
+            minifyEnabled true
+            //压缩
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.release
+
+            manifestPlaceholders = [app_names: "QuickApp", app_icons: "@mipmap/ic_launcher"]
+
+            buildConfigField("String", "BUGLY_APPID", "\"" + project.BUGLY_APPID + "\"")
+            buildConfigField("String", "BUGLY_APPKEY", "\"" + project.BUGLY_APPKEY + "\"")
+
+            buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com/\"")
+
+
+            /** https://developer.android.com/studio/build/configure-apk-splits.html
+             https://github.com/Lucidastar/PackApk
+             TODO:仍然无效
+             */
+            android.applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && ouputFile.name.endsWith('.apk')) {
+                        def fileName = "GalaxyChain_" + "${variant.productFlavors[0].name}_${variant.buildType.name}" +
+                                "_${android.defaultConfig.versionName}_${getMyVersionCode()}.apk"
+                        outputFile.renameTo(outputFile.getParent() + "/" + fileName)
+                    }
+                }
+
+            }
+        }
+    }
+
+    //渠道列表
+    productFlavors {
+        _bugly {}
+        _360 {}
+        _yingyongbao {}
+        _wandoujia {}
+        _baidu {}
+        _xiaomi {}
+        _ali {}
+        _huawei {}
+
+        productFlavors.all {
+            flavor ->
+                //这里可以不同渠道的内部定制属性
+                manifestPlaceholders = [UMENG_CHANNEL: name]
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    /** 依赖QuickLib，大部分的第三库都在lib中 */
+    implementation project(path: ':quicklib')
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+//    广告轮播图
+    compile 'com.youth.banner:banner:1.4.10'  //最新版本
+}
+
+//自动上传符号表
+bugly {
+    appId project.BUGLY_APPID
+    appKey project.BUGLY_APPKEY
+}
