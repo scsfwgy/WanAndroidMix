@@ -82,7 +82,7 @@ public class HomeFragment extends MyBaseFragment {
         //设置图片加载器
         mBanner.setImageLoader(new BannerImageLoader());
         //设置banner动画效果
-        mBanner.setBannerAnimation(Transformer.DepthPage);
+        mBanner.setBannerAnimation(Transformer.Default);
         //设置自动轮播，默认为true
         mBanner.isAutoPlay(true);
         //设置轮播时间
