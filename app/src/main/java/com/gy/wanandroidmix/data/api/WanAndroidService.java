@@ -1,13 +1,16 @@
 package com.gy.wanandroidmix.data.api;
 
 
+import com.gy.wanandroidmix.data.model.ApiArticle;
 import com.gy.wanandroidmix.data.model.ApiBanner;
 import com.gy.wanandroidmix.data.model.ApiData;
+import com.gy.wanandroidmix.data.model.ApiPager;
 
 import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * ============================================================
@@ -19,4 +22,7 @@ import retrofit2.http.GET;
 public interface WanAndroidService {
     @GET("banner/json")
     Observable<ApiData<List<ApiBanner>>> banner();
+
+    @GET("article/list/{page}/json")
+    Observable<ApiData<ApiPager<ApiArticle>>> article(@Path("page") int page);
 }

@@ -28,6 +28,7 @@ public abstract class ObserverCallBack<T> implements Observer<T> {
     private Disposable mDisposable;
 
     protected ObserverCallBack() {
+        Log.w(TAG, "onSubscribe: 建议传递Activity、Fragment相关的上下文，否则请自行处理Disposabe");
     }
 
     protected ObserverCallBack(Context context) {

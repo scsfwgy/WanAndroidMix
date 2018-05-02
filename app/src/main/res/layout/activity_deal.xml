@@ -35,7 +35,7 @@
             app:tabTextColor="@color/color_global_text_second"
             />
 
-        <com.qht.galaxychain.view.NoScrollViewPager
+        <com.gy.wanandroidmix.view.NoScrollViewPager
             android:id="@+id/ad_vp_viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

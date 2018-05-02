@@ -1,7 +1,9 @@
 package com.gy.wanandroidmix.data.api;
 
+import com.gy.wanandroidmix.data.model.ApiArticle;
 import com.gy.wanandroidmix.data.model.ApiBanner;
 import com.gy.wanandroidmix.data.model.ApiData;
+import com.gy.wanandroidmix.data.model.ApiPager;
 
 import java.util.List;
 
@@ -23,6 +25,13 @@ public class WanAndroidApi {
     public static void getBanner(ObserverCallBack<ApiData<List<ApiBanner>>> apiDataObserverCallBack) {
         getWanAndroidApi()
                 .banner()
+                .compose(RxUtils.rxApiSchedulerHelper())
+                .subscribe(apiDataObserverCallBack);
+    }
+
+    public static void getArticle(int pager, ObserverCallBack<ApiData<ApiPager<ApiArticle>>> apiDataObserverCallBack) {
+        getWanAndroidApi()
+                .article(pager)
                 .compose(RxUtils.rxApiSchedulerHelper())
                 .subscribe(apiDataObserverCallBack);
     }

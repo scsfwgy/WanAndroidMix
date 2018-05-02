@@ -2,22 +2,27 @@ package com.gy.wanandroidmix.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.EmptyUtils;
+import com.blankj.utilcode.util.StringUtils;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.gy.wanandroidmix.R;
 import com.gy.wanandroidmix.data.api.ObserverCallBack;
 import com.gy.wanandroidmix.data.api.WanAndroidApi;
+import com.gy.wanandroidmix.data.model.ApiArticle;
 import com.gy.wanandroidmix.data.model.ApiBanner;
 import com.gy.wanandroidmix.data.model.ApiData;
+import com.gy.wanandroidmix.data.model.ApiPager;
 import com.gy.wanandroidmix.ui.activity.DealActivity;
 import com.gy.wanandroidmix.ui.base.MyBaseFragment;
 import com.gy.wanandroidmix.utils.ExtendIntentUtils;
 import com.gy.wanandroidmix.view.BannerImageLoader;
-import com.gy.wanandroidmix.view.kview.utils.StringUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -28,6 +33,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.disposables.Disposable;
+import wgyscsf.quicklib.uiutils.MBaseQuickAdapter;
 
 
 /**
@@ -38,12 +44,18 @@ import io.reactivex.disposables.Disposable;
  * ============================================================
  */
 public class HomeFragment extends MyBaseFragment {
+    @BindView(R.id.hf_rv_listview)
+    RecyclerView mListview;
     @BindView(R.id.fm_banner_banner)
     Banner mBanner;
-    @BindView(R.id.click)
-    TextView mClick;
+
+    //当前页码
+    int mPager = 0;
+
+    MBaseQuickAdapter<ApiArticle, BaseViewHolder> mQuickAdapter;
 
     List<ApiBanner> mApiBannerList;
+    List<ApiArticle> mApiArticleList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -93,6 +105,7 @@ public class HomeFragment extends MyBaseFragment {
 
     private void initData() {
         mApiBannerList = new ArrayList<>();
+        mApiArticleList = new ArrayList<>();
     }
 
     private void initAdapter() {
@@ -108,6 +121,10 @@ public class HomeFragment extends MyBaseFragment {
                 e.printStackTrace();
             }
         });
+        mQuickAdapter.setOnLoadMoreListener(() -> {
+            mPager++;
+            loadArticle();
+        }, mListview);
     }
 
     private void loadData() {
@@ -116,12 +133,39 @@ public class HomeFragment extends MyBaseFragment {
             public void onSuccess(ApiData<List<ApiBanner>> apiBannerApiData, Disposable disposable) {
                 List<ApiBanner> data = apiBannerApiData.data;
                 Log.d(TAG, "onSuccess: " + data.toString());
-                if (StringUtils.isEmpty(data)) {
+                if (EmptyUtils.isEmpty(data)) {
                     Log.e(TAG, "onSuccess: 数据为空！！！");
                     return;
                 }
                 mApiBannerList.addAll(data);
                 processBanner();
+            }
+        });
+
+        loadArticle();
+    }
+
+    private void loadArticle() {
+        WanAndroidApi.getArticle(mPager, new ObserverCallBack<ApiData<ApiPager<ApiArticle>>>(mBaseFragment) {
+            @Override
+            public void onSuccess(ApiData<ApiPager<ApiArticle>> apiPagerApiData, Disposable disposable) {
+                ApiPager<ApiArticle> data = apiPagerApiData.data;
+                if (data == null) {
+                    Log.e(TAG, "onSuccess: NPE");
+                    return;
+                }
+                mQuickAdapter.loadMoreComplete();
+                mPager = data.curPage - 1;
+                if (data.over) {
+                    mQuickAdapter.loadMoreEnd();
+                }
+                List<ApiArticle> datas = data.datas;
+                if (EmptyUtils.isEmpty(datas)) {
+                    Log.d(TAG, "onSuccess: 集合为空");
+                } else {
+                    Log.d(TAG, "onSuccess: " + datas.toString());
+                    mApiArticleList.addAll(datas);
+                }
             }
         });
     }
@@ -143,8 +187,4 @@ public class HomeFragment extends MyBaseFragment {
         super.onDestroyView();
     }
 
-    @OnClick(R.id.click)
-    public void onViewClicked() {
-        go(DealActivity.class);
-    }
 }
