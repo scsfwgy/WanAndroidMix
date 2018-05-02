@@ -52,7 +52,7 @@ public class HomeFragment extends MyBaseFragment {
     //当前页码
     int mPager = 0;
 
-    MBaseQuickAdapter<ApiArticle, BaseViewHolder> mQuickAdapter;
+    //MBaseQuickAdapter<ApiArticle, BaseViewHolder> mQuickAdapter;
 
     List<ApiBanner> mApiBannerList;
     List<ApiArticle> mApiArticleList;
@@ -109,7 +109,12 @@ public class HomeFragment extends MyBaseFragment {
     }
 
     private void initAdapter() {
-
+//        mQuickAdapter=new MBaseQuickAdapter<ApiArticle, BaseViewHolder>() {
+//            @Override
+//            protected void convert(BaseViewHolder helper, ApiArticle item) {
+//
+//            }
+//        };
     }
 
     private void initListener() {
@@ -121,10 +126,10 @@ public class HomeFragment extends MyBaseFragment {
                 e.printStackTrace();
             }
         });
-        mQuickAdapter.setOnLoadMoreListener(() -> {
-            mPager++;
-            loadArticle();
-        }, mListview);
+//        mQuickAdapter.setOnLoadMoreListener(() -> {
+//            mPager++;
+//            loadArticle();
+//        }, mListview);
     }
 
     private void loadData() {
@@ -154,10 +159,10 @@ public class HomeFragment extends MyBaseFragment {
                     Log.e(TAG, "onSuccess: NPE");
                     return;
                 }
-                mQuickAdapter.loadMoreComplete();
+                //mQuickAdapter.loadMoreComplete();
                 mPager = data.curPage - 1;
                 if (data.over) {
-                    mQuickAdapter.loadMoreEnd();
+                   // mQuickAdapter.loadMoreEnd();
                 }
                 List<ApiArticle> datas = data.datas;
                 if (EmptyUtils.isEmpty(datas)) {

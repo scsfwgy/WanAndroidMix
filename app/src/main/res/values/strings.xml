@@ -1,9 +1,3 @@
 <resources>
     <string name="app_name">WanAndroidMix</string>
-
-
-    <!--++++++++++++++++++++KView相关，包括：分时图、副图  开始+++++++++++++++++++++++++++++++++++++++++++++++-->
-    <string name="string_fundView_defHintTxt">累计收益:</string>
-    <string name="string_fundView_pressHintTxt">累计盈亏:</string>
-    <string name="string_placeHold">--</string>
 </resources>

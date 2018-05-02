@@ -190,6 +190,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     /** 依赖QuickLib，大部分的第三库都在lib中 */
     implementation project(path: ':quicklib')
+    //implementation project(path: ':financiallib')
+    implementation 'com.wgyscsf:financialLib:0.0.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
 //    广告轮播图

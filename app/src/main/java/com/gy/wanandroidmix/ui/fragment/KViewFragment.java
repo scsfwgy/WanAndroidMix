@@ -8,16 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.gson.reflect.TypeToken;
-
 import com.gy.wanandroidmix.R;
 import com.gy.wanandroidmix.data.api.kview.ForexTab;
 import com.gy.wanandroidmix.data.api.kview.KViewSimulateNetAPI;
 import com.gy.wanandroidmix.data.model.OriginQuotes;
 import com.gy.wanandroidmix.ui.base.MyBaseFragment;
-import com.gy.wanandroidmix.view.kview.utils.StringUtils;
-import com.gy.wanandroidmix.view.kview.view.kview.KView;
-import com.gy.wanandroidmix.view.kview.view.kview.KViewListener;
-import com.gy.wanandroidmix.view.kview.view.kview.Quotes;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +24,10 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import wgyscsf.financiallib.utils.StringUtils;
+import wgyscsf.financiallib.view.kview.KView;
+import wgyscsf.financiallib.view.kview.KViewListener;
+import wgyscsf.financiallib.view.kview.Quotes;
 import wgyscsf.quicklib.datautils.GsonUtil;
 
 public class KViewFragment extends MyBaseFragment {
