@@ -29,6 +29,8 @@
         <activity android:name=".ui.activity.DealActivity">
         </activity>
         <activity android:name=".ui.activity.ProflieActivity"/>
+        <activity android:name=".ui.activity.PieChartActivity">
+        </activity>
     </application>
 
 </manifest>

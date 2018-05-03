@@ -5,9 +5,13 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.gy.wanandroidmix.R;
+import com.gy.wanandroidmix.ui.activity.PieChartActivity;
 import com.gy.wanandroidmix.ui.base.MyBaseFragment;
+
+import butterknife.BindView;
 
 
 /**
@@ -18,21 +22,8 @@ import com.gy.wanandroidmix.ui.base.MyBaseFragment;
  * ============================================================
  */
 public class KnowledgeFragment extends MyBaseFragment {
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View contentView = inflater.inflate(R.layout.fragment_knowledge, container, false);
-        return contentView;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initView();
-        initData();
-        initAdapter();
-        initListener();
-        loadData();
-    }
+    @BindView(R.id.fk_tv_piechart)
+    TextView mFkTvPiechart;
 
     private void initView() {
 
@@ -47,10 +38,32 @@ public class KnowledgeFragment extends MyBaseFragment {
     }
 
     private void initListener() {
-
+        mFkTvPiechart.setOnClickListener(view -> {
+            go(PieChartActivity.class);
+        });
     }
 
     private void loadData() {
 
+    }
+
+    public void goPieChart(View view) {
+        go(PieChartActivity.class);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View contentView = inflater.inflate(R.layout.fragment_knowledge, container, false);
+        return contentView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView();
+        initData();
+        initAdapter();
+        initListener();
+        loadData();
     }
 }

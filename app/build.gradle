@@ -137,7 +137,6 @@ android {
 
             buildConfigField("String", "BASE_URL", "\"http://www.wanandroid.com/\"")
 
-
             /** https://developer.android.com/studio/build/configure-apk-splits.html
              https://github.com/Lucidastar/PackApk
              TODO:仍然无效
