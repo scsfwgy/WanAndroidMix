@@ -48,7 +48,7 @@ public class PieChartActivity extends MyBaseActivity {
         Description description = new Description();
         description.setText("图例");
         description.setTextSize(16);
-        mApcPcPiechart.setDescription(description);
+        mApcPcPiechart.setDescription(null);
 
         //是否显示圆盘中间文字，默认显示
         mApcPcPiechart.setDrawCenterText(false);
@@ -109,10 +109,10 @@ public class PieChartActivity extends MyBaseActivity {
 
         PieDataSet pieDataSet = new PieDataSet(entries, null);
         List<Integer> colors = new ArrayList<>();
-        colors.add(getResources().getColor(R.color.colorAccent));
+        colors.add(getResources().getColor(R.color.color_global_red));
         colors.add(getResources().getColor(R.color.colorPrimary));
-        colors.add(getResources().getColor(R.color.color_fundView_xyTxtColor));
-        colors.add(getResources().getColor(R.color.colorPrimaryDark));
+        colors.add(getResources().getColor(R.color.color_global_green));
+        colors.add(getResources().getColor(R.color.color_global_immersion));
         pieDataSet.setColors(colors);
 
         PieData pieData = new PieData(pieDataSet);
