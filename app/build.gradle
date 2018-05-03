@@ -196,6 +196,9 @@ dependencies {
 
 //    广告轮播图
     compile 'com.youth.banner:banner:1.4.10'  //最新版本
+
+    //mp
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 }
 
 //自动上传符号表

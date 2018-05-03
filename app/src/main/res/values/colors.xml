@@ -14,6 +14,8 @@
     <color name="color_global_split_line">#2d2d2d</color>
     <!--全局红色颜色-->
     <color name="color_global_red">#fa5414</color>
+    <!--全局itembg-->
+    <color name="color_global_item_bg">#faf9f9</color>
 
     <!--下跌颜色-->
     <color name="color_global_green">#00c098</color>
@@ -21,7 +23,8 @@
     <!--字体颜色定义如下-->
     <color name="color_global_text_first">#FF0F73DA</color>
     <color name="color_global_text_second">#9c9b9b</color>
-    <color name="color_global_text_third">#fcf9f9</color>
+    <color name="color_global_text_third">#252424</color>
+    <color name="color_global_text_fourth">#565454</color>
 
     <color name="color_global_transparent">#00ffffff</color>
 

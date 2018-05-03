@@ -289,3 +289,6 @@ public static final int *;
 -keep class com.youth.banner.** {
     *;
  }
+
+ # mp
+ -keep class com.github.mikephil.charting.** { *; }
