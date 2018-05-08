@@ -31,6 +31,10 @@
         <activity android:name=".ui.activity.ProflieActivity"/>
         <activity android:name=".ui.activity.PieChartActivity">
         </activity>
+        <activity android:name=".ui.activity.RadarChartActivity">
+        </activity>
+        <activity android:name=".ui.activity.RadarChart2Activity">
+        </activity>
     </application>
 
 </manifest>

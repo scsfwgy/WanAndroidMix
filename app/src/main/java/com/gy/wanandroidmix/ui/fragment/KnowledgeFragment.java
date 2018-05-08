@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.gy.wanandroidmix.R;
 import com.gy.wanandroidmix.ui.activity.PieChartActivity;
+import com.gy.wanandroidmix.ui.activity.RadarChart2Activity;
+import com.gy.wanandroidmix.ui.activity.RadarChartActivity;
 import com.gy.wanandroidmix.ui.base.MyBaseFragment;
 
 import butterknife.BindView;
@@ -24,6 +26,8 @@ import butterknife.BindView;
 public class KnowledgeFragment extends MyBaseFragment {
     @BindView(R.id.fk_tv_piechart)
     TextView mFkTvPiechart;
+    @BindView(R.id.fk_tv_radarchart)
+    TextView mFkTvRadarchart;
 
     private void initView() {
 
@@ -38,18 +42,14 @@ public class KnowledgeFragment extends MyBaseFragment {
     }
 
     private void initListener() {
-        mFkTvPiechart.setOnClickListener(view -> {
-            go(PieChartActivity.class);
-        });
+        mFkTvPiechart.setOnClickListener(view -> go(PieChartActivity.class));
+        mFkTvRadarchart.setOnClickListener(view -> go(RadarChart2Activity.class));
     }
 
     private void loadData() {
 
     }
 
-    public void goPieChart(View view) {
-        go(PieChartActivity.class);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
