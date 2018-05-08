@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,6 +35,8 @@ public class MainActivity extends MyBaseActivity {
 
     @BindView(R.id.pmtb_tv_title)
     TextView mPmtbTvTitle;
+    @BindView(R.id.pmtb_iv_search)
+    ImageView mPmtbIvSearch;
     @BindView(R.id.pmtb_rl_container)
     RelativeLayout mPmtbRlContainer;
     @BindView(R.id.am_fl_content)
@@ -93,7 +96,9 @@ public class MainActivity extends MyBaseActivity {
     }
 
     private void initListener() {
-
+        mPmtbIvSearch.setOnClickListener(view -> {
+            
+        });
     }
 
     public void setTabSelection(int index) {
@@ -109,7 +114,7 @@ public class MainActivity extends MyBaseActivity {
         mPmtbRlContainer.setVisibility(View.VISIBLE);
         switch (index) {
             case 0:
-                mPmtbRlContainer.setVisibility(View.GONE);
+                //mPmtbRlContainer.setVisibility(View.GONE);
                 gotoHomePage();
                 break;
             case 1:

@@ -3,15 +3,24 @@
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@color/color_global_navbar"
-                android:gravity="center_horizontal">
+                android:background="@color/color_global_navbar">
 
     <TextView
         android:id="@+id/pmtb_tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
         android:text="玩安卓(Java+Kotlin)"
         android:textColor="@color/color_global_text_third"
         android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/pmtb_iv_search"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dimens_global_marginRight"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_action_search"/>
 </RelativeLayout>

@@ -7,10 +7,14 @@ import com.gy.wanandroidmix.data.model.ApiData;
 import com.gy.wanandroidmix.data.model.ApiPager;
 
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.Observable;
+import retrofit2.http.FieldMap;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.QueryMap;
 
 /**
  * ============================================================
@@ -25,4 +29,7 @@ public interface WanAndroidService {
 
     @GET("article/list/{page}/json")
     Observable<ApiData<ApiPager<ApiArticle>>> article(@Path("page") int page);
+
+    @POST("article/query/{page}/json")
+    Observable<ApiData<ApiPager<ApiArticle>>> query(@Path("page") int page, @QueryMap Map<String, Object> params);
 }

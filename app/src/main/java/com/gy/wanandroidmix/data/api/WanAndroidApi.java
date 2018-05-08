@@ -6,6 +6,7 @@ import com.gy.wanandroidmix.data.model.ApiData;
 import com.gy.wanandroidmix.data.model.ApiPager;
 
 import java.util.List;
+import java.util.Map;
 
 import wgyscsf.quicklib.datautils.RxUtils;
 
@@ -32,6 +33,13 @@ public class WanAndroidApi {
     public static void getArticle(int pager, ObserverCallBack<ApiData<ApiPager<ApiArticle>>> apiDataObserverCallBack) {
         getWanAndroidApi()
                 .article(pager)
+                .compose(RxUtils.rxApiSchedulerHelper())
+                .subscribe(apiDataObserverCallBack);
+    }
+
+    public static void getQuery(int pager, Map<String, Object> map, ObserverCallBack<ApiData<ApiPager<ApiArticle>>> apiDataObserverCallBack) {
+        getWanAndroidApi()
+                .query(pager, map)
                 .compose(RxUtils.rxApiSchedulerHelper())
                 .subscribe(apiDataObserverCallBack);
     }

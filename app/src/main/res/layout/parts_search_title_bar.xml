@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/pmtb_rl_container"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/color_global_navbar">
+
+
+    <ImageView
+        android:id="@+id/pdtb_iv_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dimens_global_marginleft"
+        android:scaleType="fitXY"
+        android:src="@drawable/title_back"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/pmtb_acev_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/dimens_global_marginleft"
+        android:layout_toRightOf="@+id/pdtb_iv_back"
+        android:background="@null"
+        android:hint="搜索"
+        android:textColor="@color/color_global_text_third"
+        android:textSize="16sp"/>
+
+</RelativeLayout>
