@@ -4,6 +4,7 @@ package com.gy.wanandroidmix.data.api;
 import com.gy.wanandroidmix.data.model.ApiArticle;
 import com.gy.wanandroidmix.data.model.ApiBanner;
 import com.gy.wanandroidmix.data.model.ApiData;
+import com.gy.wanandroidmix.data.model.ApiFatherTree;
 import com.gy.wanandroidmix.data.model.ApiPager;
 
 import java.util.List;
@@ -31,5 +32,9 @@ public interface WanAndroidService {
     Observable<ApiData<ApiPager<ApiArticle>>> article(@Path("page") int page);
 
     @POST("article/query/{page}/json")
-    Observable<ApiData<ApiPager<ApiArticle>>> query(@Path("page") int page, @QueryMap Map<String, Object> params);
+    Observable<ApiData<ApiPager<ApiArticle>>> query(@Path("page") int page,
+                                                    @QueryMap Map<String, Object> params);
+
+    @GET("tree/json")
+    Observable<ApiData<List<ApiFatherTree>>> tree();
 }

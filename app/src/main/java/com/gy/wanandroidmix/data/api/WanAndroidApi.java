@@ -3,6 +3,7 @@ package com.gy.wanandroidmix.data.api;
 import com.gy.wanandroidmix.data.model.ApiArticle;
 import com.gy.wanandroidmix.data.model.ApiBanner;
 import com.gy.wanandroidmix.data.model.ApiData;
+import com.gy.wanandroidmix.data.model.ApiFatherTree;
 import com.gy.wanandroidmix.data.model.ApiPager;
 
 import java.util.List;
@@ -30,16 +31,26 @@ public class WanAndroidApi {
                 .subscribe(apiDataObserverCallBack);
     }
 
-    public static void getArticle(int pager, ObserverCallBack<ApiData<ApiPager<ApiArticle>>> apiDataObserverCallBack) {
+    public static void getArticle(int pager,
+                                  ObserverCallBack<ApiData<ApiPager<ApiArticle>>> apiDataObserverCallBack) {
         getWanAndroidApi()
                 .article(pager)
                 .compose(RxUtils.rxApiSchedulerHelper())
                 .subscribe(apiDataObserverCallBack);
     }
 
-    public static void getQuery(int pager, Map<String, Object> map, ObserverCallBack<ApiData<ApiPager<ApiArticle>>> apiDataObserverCallBack) {
+    public static void getQuery(int pager, Map<String,
+            Object> map, ObserverCallBack<ApiData<ApiPager<ApiArticle>>> apiDataObserverCallBack) {
         getWanAndroidApi()
                 .query(pager, map)
+                .compose(RxUtils.rxApiSchedulerHelper())
+                .subscribe(apiDataObserverCallBack);
+    }
+
+    public static void getTree(ObserverCallBack<ApiData<List<ApiFatherTree>>>
+                                       apiDataObserverCallBack) {
+        getWanAndroidApi()
+                .tree()
                 .compose(RxUtils.rxApiSchedulerHelper())
                 .subscribe(apiDataObserverCallBack);
     }

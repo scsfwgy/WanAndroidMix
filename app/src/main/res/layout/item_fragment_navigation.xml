@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="@dimen/dimens_global_marginleft"
+                android:background="@color/color_global_item_bg"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimens_global_marginleft">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/ifn_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:ellipsize="end"
+            android:maxEms="10"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:text="I am a Text"
+            android:textColor="@color/color_global_text_third"
+            android:textSize="18sp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            android:id="@+id/ifn_tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="4"
+            android:text="线程池 gradel"
+            android:textColor="@color/color_global_text_fourth"
+            android:textSize="12dp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/title_back"/>
+
+
+</RelativeLayout>
