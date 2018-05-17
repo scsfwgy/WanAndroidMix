@@ -6,21 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseViewHolder
-
 import com.gy.wanandroidmix.R
 import com.gy.wanandroidmix.data.api.ObserverCallBack
 import com.gy.wanandroidmix.data.api.WanAndroidApi
-import com.gy.wanandroidmix.data.model.ApiBase
 import com.gy.wanandroidmix.data.model.ApiData
 import com.gy.wanandroidmix.data.model.ApiFatherTree
 import com.gy.wanandroidmix.ui.base.MyBaseFragment
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_navigation.*
-import kotlinx.android.synthetic.main.item_fragment_navigation.view.*
-import org.w3c.dom.Text
-import wgyscsf.financiallib.view.BaseView
 import wgyscsf.quicklib.uiutils.MBaseQuickAdapter
 
 
@@ -63,7 +57,7 @@ class NavigationFragment : MyBaseFragment() {
                 val title: TextView = helper.getView(R.id.ifn_tv_title)
                 val content: TextView = helper.getView(R.id.ifn_tv_content)
                 title.text = item.name
-                var txt: String = ""
+                var txt = ""
                 item.children.forEach { txt += it.name + "  " }
                 content.text = txt
             }
