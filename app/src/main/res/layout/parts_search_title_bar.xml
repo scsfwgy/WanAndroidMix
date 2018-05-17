@@ -3,12 +3,14 @@
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@color/color_global_navbar">
+                android:background="@color/color_global_navbar"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
 
 
     <ImageView
         android:id="@+id/pdtb_iv_back"
-        android:layout_width="20dp"
+        android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
@@ -24,8 +26,11 @@
         android:layout_marginLeft="@dimen/dimens_global_marginleft"
         android:layout_toRightOf="@+id/pdtb_iv_back"
         android:background="@null"
-        android:hint="搜索"
+        android:hint="请输入要搜索的关键字"
+        android:imeOptions="actionSearch"
+        android:singleLine="true"
         android:textColor="@color/color_global_text_third"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        />
 
 </RelativeLayout>

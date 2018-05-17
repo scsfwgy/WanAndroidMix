@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="@dimen/dimens_global_marginleft"
+                android:background="@color/color_global_item_bg"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimens_global_marginleft">
+
+    <ImageView
+        android:id="@+id/ifh_iv_like"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_navigation_not_selected"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/ifh_iv_like"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ifh_iv_author"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_me_not_selected"/>
+
+            <TextView
+                android:id="@+id/ifh_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:ellipsize="end"
+                android:maxEms="30"
+                android:maxLength="30"
+                android:maxLines="3"
+                android:text="I am a Text"
+                android:textColor="@color/color_global_text_third"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ifh_tv_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="作者：wgyscsf"
+                android:textColor="@color/color_global_text_fourth"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:id="@+id/ifh_tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="分类：内存管理"
+                android:textColor="@color/color_global_text_fourth"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:id="@+id/ifh_tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="时间：13小时前"
+                android:textColor="@color/color_global_text_fourth"
+                android:textSize="12dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

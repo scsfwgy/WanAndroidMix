@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.gy.wanandroidmix.ui.activity.SearchActivity;
 import com.gy.wanandroidmix.ui.base.MyBaseActivity;
 import com.gy.wanandroidmix.ui.fragment.NavigationFragment;
 import com.gy.wanandroidmix.ui.fragment.KnowledgeFragment;
@@ -97,7 +98,7 @@ public class MainActivity extends MyBaseActivity {
 
     private void initListener() {
         mPmtbIvSearch.setOnClickListener(view -> {
-            
+            go(SearchActivity.class);
         });
     }
 
