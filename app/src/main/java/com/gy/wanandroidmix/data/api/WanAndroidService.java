@@ -15,6 +15,7 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 /**
@@ -37,4 +38,7 @@ public interface WanAndroidService {
 
     @GET("tree/json")
     Observable<ApiData<List<ApiFatherTree>>> tree();
+
+    @GET("article/list/{page}/json")
+    Observable<ApiData<ApiPager<ApiArticle>>> article(@Path("page") int page, @Query("cid") int cid);
 }

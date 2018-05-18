@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.gy.wanandroidmix.R;
 import com.gy.wanandroidmix.ui.activity.ProflieActivity;
+import com.gy.wanandroidmix.ui.activity.SonTreeActivity;
 import com.gy.wanandroidmix.ui.base.MyBaseFragment;
 
 import butterknife.OnClick;

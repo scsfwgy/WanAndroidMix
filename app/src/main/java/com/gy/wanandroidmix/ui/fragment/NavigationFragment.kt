@@ -12,6 +12,8 @@ import com.gy.wanandroidmix.data.api.ObserverCallBack
 import com.gy.wanandroidmix.data.api.WanAndroidApi
 import com.gy.wanandroidmix.data.model.ApiData
 import com.gy.wanandroidmix.data.model.ApiFatherTree
+import com.gy.wanandroidmix.ui.activity.APIFATHERTREE
+import com.gy.wanandroidmix.ui.activity.SonTreeActivity
 import com.gy.wanandroidmix.ui.base.MyBaseFragment
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_navigation.*
@@ -67,13 +69,25 @@ class NavigationFragment : MyBaseFragment() {
     }
 
     private fun initListener() {
+        fn_srl_reflsh.setOnRefreshListener {
+            loadData()
+        }
 
+        mQuickAdapter.setOnItemClickListener { _, _, position ->
+            val apiFatherTree = mList[position]
+            val bundle = Bundle()
+            bundle.putSerializable(APIFATHERTREE,apiFatherTree)
+            go(SonTreeActivity::class.java,bundle)
+        }
     }
 
     private fun loadData() {
         WanAndroidApi.getTree(object : ObserverCallBack<ApiData<List<ApiFatherTree>>>(mBaseFragment) {
             override fun onSuccess(t: ApiData<List<ApiFatherTree>>, disposable: Disposable?) {
+                fn_srl_reflsh.isRefreshing = false
+
                 val data = t.data
+                mList.clear()
                 mList.addAll(data)
                 mQuickAdapter.notifyDataSetChanged()
             }

@@ -54,4 +54,12 @@ public class WanAndroidApi {
                 .compose(RxUtils.rxApiSchedulerHelper())
                 .subscribe(apiDataObserverCallBack);
     }
+
+    public static void getArticle(int pager, int cid,
+                                  ObserverCallBack<ApiData<ApiPager<ApiArticle>>> apiDataObserverCallBack) {
+        getWanAndroidApi()
+                .article(pager, cid)
+                .compose(RxUtils.rxApiSchedulerHelper())
+                .subscribe(apiDataObserverCallBack);
+    }
 }

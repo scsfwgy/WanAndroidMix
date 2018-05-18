@@ -9,7 +9,7 @@ package com.gy.wanandroidmix.data.model
  */
 data class ApiSonTree(
         val courseId: String,
-        val id: String,
+        val id: Int,
         val name: String,
         val order: String,
         val parentChapterId: String,
