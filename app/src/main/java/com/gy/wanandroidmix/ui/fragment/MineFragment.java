@@ -1,5 +1,6 @@
 package com.gy.wanandroidmix.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import com.gy.wanandroidmix.R;
 import com.gy.wanandroidmix.ui.activity.ProflieActivity;
 import com.gy.wanandroidmix.ui.activity.SonTreeActivity;
+import com.gy.wanandroidmix.ui.activity.TestActivity;
 import com.gy.wanandroidmix.ui.base.MyBaseFragment;
 
 import butterknife.OnClick;
@@ -61,7 +63,9 @@ public class MineFragment extends MyBaseFragment {
 
     @OnClick(R.id.fm_tv_goProfile)
     public void goProfile(View view) {
-        go(ProflieActivity.class);
+        Bundle bundle=new Bundle();
+        bundle.putString(TestActivity.KEY,"12a3");
+        go(TestActivity.class,bundle);
     }
 
 }
